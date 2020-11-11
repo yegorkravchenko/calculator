@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+  font-size: 10px;
+}
+
+body {
+  background-color: #ECECEC;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.display {
+  background-image: linear-gradient(254.44deg, #A8C0FF -3.72%, #3F2B96 167.36%);
+  border-radius: 15px 15px 0 0;
+  font-weight: 700;
+  width: 282px;
+  padding: 20px 20px 0 20px;
+  position: relative;
+}
+
+.display__title {
+  color: rgba(251, 251, 251, 0.6);
+  font-size: 1.4rem;
+}
+
+.display__history {
+  color: rgba(251, 251, 251, 0.6);
+  font-size: 1.8rem;
+  text-align: right;
+  margin-top: 30px;
+}
+
+.display__output {
+  color: #FBFBFB;
+  font-size: 4.8rem;
+  text-align: right;
+}
+
+.display__equals-sign {
+  position: absolute;
+  bottom: 5px;
+  color: #FBFBFB;
+  font-size: 3.6rem;
+}
+
+.keyboard {
+  background-color: #FBFBFB;
+  border-radius: 0 0 15px 15px;
+  height: 292px;
+  width: 282px;
+  padding: 20px;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "t t t a" "n n n a" "n n n a" "n n n a" "n n n a";
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  -ms-grid-columns: auto;
+      grid-template-columns: auto;
+  -webkit-column-gap: 28px;
+          column-gap: 28px;
+  row-gap: 28px;
+}
+
+.keyboard__topbar {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: t;
+}
+
+.keyboard__numpad {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 4;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: n;
+}
+
+.keyboard__sidebar {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 5;
+  -ms-grid-column: 4;
+  grid-area: a;
+}
+
+.topbar,
+.sidebar {
+  background-color: rgba(168, 192, 255, 0.15);
+  border-radius: 100px;
+}
+
+.topbar__btn,
+.sidebar__btn {
+  color: #252A35;
+  font-size: 1.8rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.topbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.numpad {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.numpad__num {
+  color: #252A35;
+  font-size: 2.4rem;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+}
+
+.sidebar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sidebar__btn--round {
+  background-image: linear-gradient(261.04deg, #A8C0FF -22.91%, #3F2B96 199.23%);
+  color: #FBFBFB;
+}
+/*# sourceMappingURL=styles.css.map */
