@@ -14,7 +14,7 @@ const operate = {
 
 function calculate(string) {
     const [a, operator, b] = string.split(' ');
-    return operate[operator](parseInt(a, 10), parseInt(b, 10));
+    return operate[operator](parseFloat(a), parseFloat(b));
 }
 
 function toggleDisplayInfo(state) {
@@ -36,6 +36,19 @@ function selectOperation(operator) {
     toggleDisplayInfo('started');
 }
 
+const outputObserver = new MutationObserver(() => {
+    if (displayOutput.textContent.length > 9 && displayOutput.textContent.length < 18) {
+        displayOutput.style.fontSize = `${48 - (3.5 * (displayOutput.textContent.length - 9))}px`;
+    } else if (displayOutput.textContent.length >= 18) {
+        displayOutput.style.fontSize = `22px`;
+        displayOutput.textContent = displayOutput.textContent;
+    } else {
+        displayOutput.style.fontSize = '48px';
+    }
+});
+
+outputObserver.observe(displayOutput, { childList: true });
+
 topbarBtns.forEach(btn => btn.addEventListener('click', () => {
     switch (btn.textContent) {
         case 'AC':
@@ -53,10 +66,12 @@ topbarBtns.forEach(btn => btn.addEventListener('click', () => {
 
 numpadKeys.forEach(key => key.addEventListener('click', () => {
     displayEqualsSign.style.display = 'none';
-    if (displayOutput.textContent[0] === '0') {
-        displayOutput.textContent = key.textContent;
-    } else {
-        displayOutput.textContent += key.textContent;
+    if (displayOutput.textContent.length <= 18) {
+        if (displayOutput.textContent[0] === '0') {
+            displayOutput.textContent = key.textContent;
+        } else {
+            displayOutput.textContent += key.textContent;
+        }
     }
 }));
 
@@ -86,7 +101,3 @@ window.addEventListener('load', () => {
     displayOutput.textContent = '0';
     toggleDisplayInfo();
 });
-
-// TODO: calcolo con i numeri decimali
-// TODO: funzionalità tasto percentuale
-// TODO: aggiungere hover alla tastiera e all'uguale
